@@ -4,9 +4,22 @@ from PIL import ImageDraw
 
 im1 = Image.open('birthday_template.jpg')
 
-im2 = Image.open('Dini_profile.jpg')
-size = (400, 400)
-im2 = im2.resize(size)
+im2 = Image.open('Fabian Ferno.jpg')
+width  = im2.size[0]
+height = im2.size[1]
+ar = round((width / height),2)
+print (ar)
+if ar == 1.77:
+    size = (400, 400)
+    im2 = im2.resize(size)    
+
+elif ar >= 0.67 and ar < 1.77:
+    size = (500, 500)
+    im2 = im2.resize(size)
+
+else:
+    size = (400, 400)
+    im2 = im2.resize(size)    
 
 mask_im = Image.new("L", im2.size, 0)
 draw = ImageDraw.Draw(mask_im)
@@ -30,3 +43,8 @@ font = ImageFont.truetype("Fonts/Montserrat-Black.ttf", 16)
 draw.text((10, 0),"Feb 31",(255,255,255),font=font)
 
 back_im.save('sample-out.jpg', quality=100)
+
+
+
+
+
