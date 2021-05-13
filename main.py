@@ -12,10 +12,10 @@ mask_im = Image.new("L", im2.size, 0)
 draw = ImageDraw.Draw(mask_im)
 draw.ellipse((15, 15, 396, 383), fill=255)
 
-mask_im_blur = mask_im.filter(ImageFilter.GaussianBlur(10))
+mask_im_blur = mask_im.filter(ImageFilter.GaussianBlur(13))
 
 back_im = im1.copy()
-back_im.paste(im2, (260, -25), mask_im_blur)
+back_im.paste(im2, (259, -23), mask_im_blur)
 
 draw = ImageDraw.Draw(back_im)
 
