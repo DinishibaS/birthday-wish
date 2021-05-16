@@ -1,6 +1,7 @@
 from PIL import Image, ImageFilter
 from PIL import ImageFont
 from PIL import ImageDraw 
+import datetime
 
 im1 = Image.open('birthday_template.jpg')
 
@@ -53,9 +54,16 @@ font = ImageFont.truetype("Fonts/Montserrat-Black.ttf", 65)
 draw.text((45,520),"Sample guy",(255,255,255),font=font)
 
 # font = ImageFont.truetype(<font-file>, <font-size>)
-font = ImageFont.truetype("Fonts/Montserrat-Black.ttf", 16)
+font = ImageFont.truetype("Fonts/Montserrat-Black.ttf", 18)
+
+x = datetime.datetime.now()
+#Month name, short version
+month = x.strftime("%b")
+day = x.strftime("%d")
+
 # draw.text((x, y),"Sample Text",(r,g,b))
-draw.text((10, 0),"Feb 31",(255,255,255),font=font)
+draw.text((10, 0),month,(255,255,255),font=font)
+draw.text((55, 1),day,(255,255,255),font=font)
 
 back_im.save('sample-out.jpg', quality=100)
 
