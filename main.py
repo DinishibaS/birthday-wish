@@ -8,7 +8,7 @@ im2 = Image.open('Fabian Ferno.jpg')
 width  = im2.size[0]
 height = im2.size[1]
 ar = round((width / height),2)
-print (ar)
+#print (ar)
 if ar == 1.77:
     size = (400, 400)
     im2 = im2.resize(size)    
