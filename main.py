@@ -4,18 +4,35 @@ from PIL import ImageDraw
 
 im1 = Image.open('birthday_template.jpg')
 
-im2 = Image.open('Fabian Ferno.jpg')
+im2 = Image.open('eg.jpg')
 width  = im2.size[0]
 height = im2.size[1]
-ar = round((width / height),2)
+#ar = round((width / height),2)
 #print (ar)
-if ar == 1.77:
-    size = (400, 400)
-    im2 = im2.resize(size)    
+if width > 600 and height > 800:
+    if width == height:
+        size = (400, 400)
+        im2 = im2.resize(size)
 
-elif ar >= 0.67 and ar < 1.77:
-    size = (500, 500)
-    im2 = im2.resize(size)
+    elif width > height:
+        
+        left = 0
+        top = 0
+        right = width
+        bottom = height
+        im2 = im2.crop((left, top, right, bottom))
+       
+        size = (400, 400)
+        im2 = im2.resize(size)
+
+    else: 
+        left = 0
+        top = 0
+        right = width
+        bottom = width
+        im2 = im2.crop((left, top, right, bottom))
+        size = (400, 400)
+        im2 = im2.resize(size)
 
 else:
     size = (400, 400)
