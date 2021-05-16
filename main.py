@@ -15,13 +15,11 @@ if width > 600 and height > 800:
         im2 = im2.resize(size)
 
     elif width > height:
-        
-        left = 0
+        left = 300
         top = 0
-        right = width
+        right = width - 300
         bottom = height
         im2 = im2.crop((left, top, right, bottom))
-       
         size = (400, 400)
         im2 = im2.resize(size)
 
